@@ -20,14 +20,6 @@
 |  deadline  |  date  |
 |  priority  |  integer  |
 
-* Session
-
-|  Name  |  culumn  |
-| ---- | ---- |
-|  user_id  |  bigint  |
-|  email  |  string  |
-|  password_digest  |  string  |
-
 * Label
 
 |  Name  |  culumn  |
