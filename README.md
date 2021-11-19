@@ -40,4 +40,3 @@
 |  :$ git push heroku master  |
 |  5.データベースの変更内容を更新  |
 |  :$ heroku run rails db:migrate  |
-
