@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   def index
+
+
+
     @tasks = Task.all.order(created_at: :desc)
   end
 
@@ -38,7 +41,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:title, :content)
+    params.require(:task).permit(:title, :content, :deadline, :status, :priority)
   end
 
   def set_task
