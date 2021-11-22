@@ -10,6 +10,7 @@ class TasksController < ApplicationController
     end
 
     if params[:search].present?
+      if params[:search][:title].present? && params[:search][:status].present?
         @tasks = Task.where('title LIKE ?', "%#{params[:search][:title]}%").where(status: params[:search][:status]).page(params[:page]).per(5)
       elsif params[:search][:title].present?
         @tasks = Task.where('title LIKE ?', "%#{params[:search][:title]}%").page(params[:page]).per(5)
