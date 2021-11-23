@@ -11,8 +11,18 @@ RSpec.describe 'タスク管理機能', type: :system do
       visit new_task_path
       fill_in 'task[title]', with: 'test_title'
       fill_in 'task[content]', with: 'test_content'
+      select '2021', from: 'task_deadline_1i'
+      select 'November', from: 'task_deadline_2i'
+      select '30', from: 'task_deadline_3i'
+      select '完了', from: 'task_status'
+
       click_button 'Create Task'
       expect(page).to have_content 'test_title'
+      expect(page).to have_content 'test_content'
+      expect(page).to have_content '2021'
+      expect(page).to have_content '11'
+      expect(page).to have_content '30'
+      expect(page).to have_content '完了'
       end
     end
   end
@@ -39,8 +49,8 @@ RSpec.describe 'タスク管理機能', type: :system do
         visit tasks_path
         click_on '終了期限でソートする'
         task_list = all('.task_row')
-        expect(task_list[0]).to have_content '2021-11-21'
-        expect(task_list[1]).to have_content '2021-11-23'
+        expect(task_list[0]).to have_content '2021-11-23'
+        expect(task_list[1]).to have_content '2021-11-21'
       end
     end
   end
@@ -85,7 +95,7 @@ RSpec.describe 'タスク管理機能', type: :system do
       end
     end
 
-    context '優先順位でソートするをクリックした場合場合' do
+    context '優先順位でソートするをクリックした場合' do
       it '優先順位が高い順に並んでいる' do
         visit tasks_path
         click_on '優先順位が高い順にソートする'
