@@ -124,7 +124,7 @@ RSpec.describe '​ユーザ登録・ログイン・ログアウト機能​・�
         visit admin_users_path
         click_on 'Delete', match: :first
         page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content '管理権限者は、最低でも１人必要です'
+        expect(page).to have_content '管理権限者は、最低１人必要です'
       end
     end
   end

@@ -9,6 +9,7 @@ class User < ApplicationRecord
   before_destroy :reject_destroy_admin
   before_update :reject_update_admin
 
+  private
   def reject_destroy_admin
     if User.where(admin: true).count == 1
       user = User.where(admin: true)
