@@ -28,22 +28,5 @@ class UsersController < ApplicationController
     if logged_in?
         redirect_to tasks_path, notice:"ログイン中です。まずログアウトしてください"
     end
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  end
 end
