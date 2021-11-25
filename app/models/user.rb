@@ -5,7 +5,7 @@ class User < ApplicationRecord
   before_validation { email.downcase! }
   has_secure_password
   validates :password, length: { minimum: 6 }
-  has_many :tasks
+  has_many :tasks, foreign_key: :user_id, dependent: :destroy
   before_destroy :reject_destroy_admin
   before_update :reject_update_admin
 
